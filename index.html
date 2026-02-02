@@ -32,7 +32,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--dark-gray);
-            background: linear-gradient(135deg, #FFE5F0 0%, #FFD9EC 25%, #F8DAFF 50%, #E5DBFF 75%, #FFE5F0 100%);
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 50%, #FFDAB9 100%);
             background-attachment: fixed;
             line-height: 1.6;
             overflow-x: hidden;
@@ -129,6 +129,13 @@
             z-index: 1000;
             box-shadow: 0 4px 30px rgba(255, 105, 180, 0.1);
             border-bottom: 2px solid rgba(255, 105, 180, 0.1);
+            transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+        }
+
+        .nav-blur {
+            background: rgba(255,255,255,0.7) !important;
+            backdrop-filter: blur(30px) !important;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.18) !important;
         }
 
         nav .container {
@@ -197,8 +204,9 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding-top: 80px;
+            padding-top: 100px; /* Đảm bảo không bị nav che khuất */
             z-index: 1;
+            background: url('banner.png') center/cover no-repeat;
         }
 
         .hero-content {
@@ -211,6 +219,7 @@
 
         .hero-text {
             z-index: 1;
+            margin-top: 180px; /* Đẩy nội dung xuống dưới chữ trong banner */
         }
 
         .hero-subtitle {
@@ -379,12 +388,36 @@
 
         /* About Section */
         .about {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 30px;
             padding: 4rem 2rem;
             margin: 0 2rem;
-            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.15);
+            box-shadow: 0 20px 60px 0 rgba(255, 182, 217, 0.25), 0 1.5rem 3rem 0 rgba(255, 105, 180, 0.10);
+            position: relative;
+            overflow: hidden;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFDAB9 60%, transparent 100%);
+            filter: blur(2px);
+            z-index: 0;
+            border-radius: 50%;
+        }
+        .about::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 8%;
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><polygon points="30,5 36,22 55,22 39,34 45,51 30,40 15,51 21,34 5,22 24,22" fill="%23FFB6D9" stroke="%23FF69B4" stroke-width="2"/></svg>') no-repeat center/contain;
+            z-index: 0;
         }
 
         .about-content {
@@ -469,6 +502,31 @@
         /* Skills Section */
         .skills {
             padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px 0 rgba(255, 182, 217, 0.18), 0 1.5rem 3rem 0 rgba(255, 105, 180, 0.08);
+        }
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: 8%;
+            right: 10%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #E6B3FF 60%, transparent 100%);
+            filter: blur(2px);
+            z-index: 0;
+            border-radius: 50%;
+        }
+        .skills::after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            left: 7%;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="25,3 29,17 47,17 32,28 37,45 25,35 13,45 18,28 3,17 21,17" fill="%239B59B6" stroke="%23FF69B4" stroke-width="2"/></svg>') no-repeat center/contain;
+            z-index: 0;
         }
 
         .skills-grid {
@@ -553,12 +611,36 @@
 
         /* Experience Section */
         .experience {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             border-radius: 30px;
             padding: 4rem 2rem;
             margin: 0 2rem;
-            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.15);
+            box-shadow: 0 20px 60px 0 rgba(255, 182, 217, 0.18), 0 1.5rem 3rem 0 rgba(255, 105, 180, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 12%;
+            left: 8%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #FFDAB9 60%, transparent 100%);
+            filter: blur(2px);
+            z-index: 0;
+            border-radius: 50%;
+        }
+        .experience::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="25,3 29,17 47,17 32,28 37,45 25,35 13,45 18,28 3,17 21,17" fill="%23FFDAB9" stroke="%23FF69B4" stroke-width="2"/></svg>') no-repeat center/contain;
+            z-index: 0;
         }
 
         .timeline {
@@ -686,7 +768,31 @@
             border-radius: 30px;
             margin: 0 2rem;
             padding: 4rem 2rem;
-            box-shadow: 0 20px 60px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 20px 60px 0 rgba(155, 89, 182, 0.18), 0 1.5rem 3rem 0 rgba(255, 105, 180, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 8%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #E6B3FF 60%, transparent 100%);
+            filter: blur(2px);
+            z-index: 0;
+            border-radius: 50%;
+        }
+        .contact::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="25,3 29,17 47,17 32,28 37,45 25,35 13,45 18,28 3,17 21,17" fill="%23E6B3FF" stroke="%23FF69B4" stroke-width="2"/></svg>') no-repeat center/contain;
+            z-index: 0;
         }
 
         .contact .section-subtitle {
@@ -1127,7 +1233,7 @@
             observer.observe(el);
         });
 
-        // Active nav link on scroll
+        // Active nav link on scroll & nav blur effect
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
@@ -1146,6 +1252,14 @@
                     link.classList.add('active');
                 }
             });
+
+            // Hiệu ứng mờ cho nav khi scroll
+            const nav = document.querySelector('nav');
+            if(window.scrollY > 0) {
+                nav.classList.add('nav-blur');
+            } else {
+                nav.classList.remove('nav-blur');
+            }
         });
     </script>
 </body>
